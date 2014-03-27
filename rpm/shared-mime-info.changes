@@ -1,0 +1,72 @@
+* Mon Mar 04 2013 Carsten Munk <carsten.munk@jollamobile.com> - 1.0
+- Remember to update mime database at install time
+
+* Thu Feb 16 2012 Marko Saukko <marko.saukko@gmail.com> - 1.0
+- Drop defaults.list and totem-defaults.list as vendors might want
+  to have their own version of defaults.list file.
+
+* Wed Jan 25 2012 Marko Saukko <marko.saukko@gmail.com> - 1.0
+- Updated to version 1.0
+- Fixes MER#136: Added -devel package for .pc file.
+
+* Tue Nov 22 2011 Marko Saukko <marko.saukko@cybercom.com> - 0.91
+- Updated to version 0.91
+
+* Wed Jul 13 2011 Zhou Ting <ting.z.zhou@intel.com> - 0.90
+- Rename banshee-1.desktop to banshee.desktop (BMC #18749)
+
+* Sun Jun 26 2011 Anas Nashif <anas.nashif@intel.com> - 0.90
+- Update to 0.90
+
+* Fri Jun 24 2011 Halton Huo <halton.huo@intel.com> - 0.70
+- Add meego-ux-defaults.list to fix BMC #19780
+
+* Thu Sep 02 2010 Priya Vijayan <priya.vijayan@intel.com> - 0.70
+- Fix typo in previous commit
+
+* Thu Sep 02 2010 Auke Kok <auke-jan.h.kok@intel.com> - 0.70
+- BMC#6162: fix regression where mime info data was not updated in %post
+- undo breakage after spectacle conversion (packaging error).
+
+* Thu May 13 2010 Zhang Qiang <qiang.z.zhang@intel.com> - 0.70
+- Move banshee-1.desktop from defaults.list to totem-defaults.list (BMC #1955)
+
+* Wed May 05 2010 Vivian Zhang <vivian.zhang@intel.com> - 0.70
+- Updated banshee-1-media-player.desktop to banshee-1.desktop in defaults.list (BMC #489)
+
+* Mon Apr 19 2010 Chris Ferron <chris.e.ferron@intel.com> - 0.70
+- Added google-chrome as default app for html/text/xhtml
+
+* Sat Apr 10 2010 Anas Nashif <anas.nashif@intel.com> - 0.70
+- Fixed rpmlint errors
+
+* Fri Apr  9 2010 Zhang Qiang <qiang.z.zhang@intel.com> - 0.70
+- Using banshee-1 to open Audio/ Video files, fix bug MBC#366
+
+* Fri Mar 26 2010 Vivian Zhang <vivian.zhang@intel.com> - 0.70
+- Update to 0.70
+
+* Tue Feb 01 2010 Yong Wu <yong.wu@intel.com> 0.60
+- Add chromium as default app for html/text/xhtml
+
+* Fri Oct 30 2009 Vivian Zhang <vivian.zhang@intel.com> 0.60
+- Add hornsey as default app for RM/RA file formats, fixed MB #7390
+
+* Thu Sep 10 2009 Jian-feng Ding <jian-feng.ding@intel.com> 0.60
+- Add moblin-web-browser as default app for text/html mimetype
+  fixed 5372:Desktop files with Type=Link are not opened by moblin-web-browser
+
+* Fri Sep 4 2009 Vivian Zhang <vivian.zhang@intel.com> 0.60
+- Add hornsey as default app for more mimetype, fixed 5657:media player needs to be registered as handler for x-content/image-dcf
+
+* Fri Jul 24 2009 Peter Zhu <peter.j.zhu@intel.com> 0.60
+- Update po files
+
+* Fri Jul 17 2009 Vivian Zhang <vivian.zhang@intel.com> 0.60
+- set hornsey as the preferred apps for all media files, fixed 4458: hornsey should open images
+
+* Wed Apr 22 2009 Vivian Zhang <vivian.zhang@intel.com> 0.60
+- Update to 0.60
+- Update Source URL
+- Add hornsey as the second default in media mime-type list, fixed 1717
+
