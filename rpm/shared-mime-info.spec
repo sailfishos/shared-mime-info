@@ -7,6 +7,7 @@ License:    GPL
 URL:        http://freedesktop.org/Software/shared-mime-info
 Source0:    %{name}-%{version}.tar.xz
 Source101:  shared-mime-info-rpmlintrc
+Patch0:     text-x-vnote.patch
 BuildRequires:  pkgconfig(libxml-2.0)
 BuildRequires:  pkgconfig(glib-2.0)
 BuildRequires:  gawk
@@ -32,6 +33,9 @@ Development files for %{name}
 
 %prep
 %setup -q -n %{name}-%{version}/shared-mime-info
+
+# text-x-vnote.patch
+%patch0 -p1
 
 %build
 NOCONFIGURE=1 ./autogen.sh

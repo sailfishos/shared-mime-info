@@ -1,0 +1,40 @@
+diff --git a/freedesktop.org.xml.in b/freedesktop.org.xml.in
+index 1eadc68..2905a50 100644
+--- a/freedesktop.org.xml.in
++++ b/freedesktop.org.xml.in
+@@ -6165,4 +6165,14 @@ command to generate the output files.
+     <glob pattern="*.trig" />
+   </mime-type>
+ 
++  <mime-type type="text/x-vnote">
++    <_comment>Calendar/journal textual note</_comment>
++    <sub-class-of type="text/plain"/>
++    <magic priority="50">
++      <match type="string" value="BEGIN:VNOTE" offset="0"/>
++      <match type="string" value="begin:vnote" offset="0"/>
++    </magic>
++    <glob pattern="*.vnt"/>
++  </mime-type>
++
+ </mime-info>
+diff --git a/tests/list b/tests/list
+index 9f15364..651c2f9 100644
+--- a/tests/list
++++ b/tests/list
+@@ -451,3 +451,6 @@ COPYING.asc application/pgp-signature xoo
+ test-public-key.asc application/pgp-keys xoo
+ test-secret-key.skr application/pgp-keys ooo
+ test-secret-key.asc application/pgp-keys xoo
++
++# vNote (IrMC 1.1 specification)
++test.vnt text/x-vnote
+diff --git a/tests/test.vnt b/tests/test.vnt
+new file mode 100644
+index 0000000..44e96f8
+--- /dev/null
++++ b/tests/test.vnt
+@@ -0,0 +1,4 @@
++BEGIN:VNOTE
++VERSION:1.1
++BODY: Test note
++END:VNOTE
