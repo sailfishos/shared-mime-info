@@ -8,6 +8,7 @@ URL:        http://freedesktop.org/Software/shared-mime-info
 Source0:    %{name}-%{version}.tar.xz
 Source101:  shared-mime-info-rpmlintrc
 Patch0:     text-x-vnote.patch
+Patch1:     0001-Add-audio-x-opus-ogg-mime-type.patch
 BuildRequires:  pkgconfig(libxml-2.0)
 BuildRequires:  pkgconfig(glib-2.0)
 BuildRequires:  gawk
@@ -36,6 +37,9 @@ Development files for %{name}
 
 # text-x-vnote.patch
 %patch0 -p1
+
+# 0001-Add-audio-x-opus-ogg-mime-type.patch
+%patch1 -p1
 
 %build
 NOCONFIGURE=1 ./autogen.sh
