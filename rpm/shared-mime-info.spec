@@ -3,7 +3,7 @@ Summary:    Shared MIME information database
 Version:    1.2
 Release:    1
 Group:      System/Libraries
-License:    GPL
+License:    GPLv2
 URL:        http://freedesktop.org/Software/shared-mime-info
 Source0:    %{name}-%{version}.tar.xz
 Source101:  shared-mime-info-rpmlintrc
