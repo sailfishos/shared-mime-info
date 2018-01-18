@@ -1,2 +1,0 @@
-from Config import *
-addFilter("shared-mime-info.* devel-file-in-non-devel-package")
