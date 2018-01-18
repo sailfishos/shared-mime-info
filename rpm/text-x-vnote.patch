@@ -1,9 +1,24 @@
+From b6462a1268b7f8eb1c0b52d35c79555adbe78e93 Mon Sep 17 00:00:00 2001
+From: Marko Saukko <marko.saukko@jolla.com>
+Date: Thu, 18 Jan 2018 11:42:47 +0000
+Subject: [PATCH] Add text/x-vnote, *.vnt.
+
+The original patch is by Hannu Mallat, created to fix MER#1096 and JB#10854
+
+Signed-off-by: Marko Saukko <marko.saukko@jolla.com>
+---
+ freedesktop.org.xml.in | 10 ++++++++++
+ tests/list             |  3 +++
+ tests/test.vnt         |  4 ++++
+ 3 files changed, 17 insertions(+)
+ create mode 100644 tests/test.vnt
+
 diff --git a/freedesktop.org.xml.in b/freedesktop.org.xml.in
-index 1eadc68..2905a50 100644
+index caa4202..0e873d3 100644
 --- a/freedesktop.org.xml.in
 +++ b/freedesktop.org.xml.in
-@@ -6165,4 +6165,14 @@ command to generate the output files.
-     <glob pattern="*.trig" />
+@@ -7147,4 +7147,14 @@ command to generate the output files.
+     </magic>
    </mime-type>
  
 +  <mime-type type="text/x-vnote">
@@ -18,19 +33,19 @@ index 1eadc68..2905a50 100644
 +
  </mime-info>
 diff --git a/tests/list b/tests/list
-index 9f15364..651c2f9 100644
+index d527325..a488065 100644
 --- a/tests/list
 +++ b/tests/list
-@@ -451,3 +451,6 @@ COPYING.asc application/pgp-signature xoo
- test-public-key.asc application/pgp-keys xoo
- test-secret-key.skr application/pgp-keys ooo
- test-secret-key.asc application/pgp-keys xoo
+@@ -668,3 +668,6 @@ ascii.stl model/x.stl-ascii x
+ binary.stl model/x.stl-ascii xxx
+ ascii.stl model/x.stl-binary oxx
+ test.gcode text/x.gcode ox
 +
 +# vNote (IrMC 1.1 specification)
 +test.vnt text/x-vnote
 diff --git a/tests/test.vnt b/tests/test.vnt
 new file mode 100644
-index 0000000..44e96f8
+index 0000000..0978129
 --- /dev/null
 +++ b/tests/test.vnt
 @@ -0,0 +1,4 @@
@@ -38,3 +53,6 @@ index 0000000..44e96f8
 +VERSION:1.1
 +BODY: Test note
 +END:VNOTE
+-- 
+1.8.3-rc3
+

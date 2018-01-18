@@ -1,14 +1,12 @@
 Name:       shared-mime-info
 Summary:    Shared MIME information database
-Version:    1.2
+Version:    1.9
 Release:    1
 Group:      System/Libraries
 License:    GPLv2
 URL:        http://freedesktop.org/Software/shared-mime-info
 Source0:    %{name}-%{version}.tar.xz
-Source101:  shared-mime-info-rpmlintrc
 Patch0:     text-x-vnote.patch
-Patch1:     0001-Add-audio-x-opus-ogg-mime-type.patch
 BuildRequires:  pkgconfig(libxml-2.0)
 BuildRequires:  pkgconfig(glib-2.0)
 BuildRequires:  gawk
@@ -38,9 +36,6 @@ Development files for %{name}
 # text-x-vnote.patch
 %patch0 -p1
 
-# 0001-Add-audio-x-opus-ogg-mime-type.patch
-%patch1 -p1
-
 %build
 NOCONFIGURE=1 ./autogen.sh
 %configure
@@ -66,6 +61,7 @@ find $RPM_BUILD_ROOT%{_datadir}/mime -type f -not -path "*/packages/*" \
 
 %files -f %{name}.files
 %defattr(-,root,root,-)
+%doc COPYING
 %{_bindir}/update-mime-database
 %dir %{_datadir}/mime/
 %{_datadir}/mime/packages/freedesktop.org.xml
