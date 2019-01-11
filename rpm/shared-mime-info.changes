@@ -46,26 +46,26 @@
 * Fri Mar 26 2010 Vivian Zhang <vivian.zhang@intel.com> - 0.70
 - Update to 0.70
 
-* Tue Feb 01 2010 Yong Wu <yong.wu@intel.com> 0.60
+* Mon Feb 01 2010 Yong Wu <yong.wu@intel.com> - 0.60
 - Add chromium as default app for html/text/xhtml
 
-* Fri Oct 30 2009 Vivian Zhang <vivian.zhang@intel.com> 0.60
+* Fri Oct 30 2009 Vivian Zhang <vivian.zhang@intel.com> - 0.60
 - Add hornsey as default app for RM/RA file formats, fixed MB #7390
 
-* Thu Sep 10 2009 Jian-feng Ding <jian-feng.ding@intel.com> 0.60
+* Thu Sep 10 2009 Jian-feng Ding <jian-feng.ding@intel.com> - 0.60
 - Add moblin-web-browser as default app for text/html mimetype
   fixed 5372:Desktop files with Type=Link are not opened by moblin-web-browser
 
-* Fri Sep 4 2009 Vivian Zhang <vivian.zhang@intel.com> 0.60
+* Fri Sep 4 2009 Vivian Zhang <vivian.zhang@intel.com> - 0.60
 - Add hornsey as default app for more mimetype, fixed 5657:media player needs to be registered as handler for x-content/image-dcf
 
-* Fri Jul 24 2009 Peter Zhu <peter.j.zhu@intel.com> 0.60
+* Fri Jul 24 2009 Peter Zhu <peter.j.zhu@intel.com> - 0.60
 - Update po files
 
-* Fri Jul 17 2009 Vivian Zhang <vivian.zhang@intel.com> 0.60
+* Fri Jul 17 2009 Vivian Zhang <vivian.zhang@intel.com> - 0.60
 - set hornsey as the preferred apps for all media files, fixed 4458: hornsey should open images
 
-* Wed Apr 22 2009 Vivian Zhang <vivian.zhang@intel.com> 0.60
+* Wed Apr 22 2009 Vivian Zhang <vivian.zhang@intel.com> - 0.60
 - Update to 0.60
 - Update Source URL
 - Add hornsey as the second default in media mime-type list, fixed 1717
