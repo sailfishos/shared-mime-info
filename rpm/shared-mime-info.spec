@@ -21,7 +21,6 @@ files. Frequently, it is necessary to work out the correct MIME type for
 a file. This is generally done by examining the file's name or contents,
 and looking up the correct MIME type in a database.
 
-
 %package devel
 Summary:    Development files for %{name}
 Group:      Development/Libraries
@@ -29,6 +28,14 @@ Requires:   %{name} = %{version}-%{release}
 %description devel
 Development files for %{name}
 
+%package doc
+Summary:   Documentation for %{name}
+Group:     Documentation
+Requires:  %{name} = %{version}-%{release}
+Obsoletes: %{name}-docs
+
+%description doc
+Man page for update-mime-database from %{name}.
 
 %prep
 %setup -q -n %{name}-%{version}/shared-mime-info
@@ -48,20 +55,18 @@ rm -rf %{buildroot}
 
 find $RPM_BUILD_ROOT%{_datadir}/mime -type d \
 | sed -e "s|^$RPM_BUILD_ROOT|%%dir |" > %{name}.files
-find $RPM_BUILD_ROOT%{_datadir}/mime -type f -not -path "*/packages/*" \
+find $RPM_BUILD_ROOT%{_datadir}/mime -type f '!' -path "*/packages/*" \
 | sed -e "s|^$RPM_BUILD_ROOT|%%ghost |" >> %{name}.files
 
 ## remove these bogus files
 %{__rm} -rf $RPM_BUILD_ROOT%{_datadir}/locale/*
-
-%docs_package
 
 %post
 %{_bindir}/update-mime-database %{_datadir}/mime &> /dev/null || :
 
 %files -f %{name}.files
 %defattr(-,root,root,-)
-%doc COPYING
+%license COPYING
 %{_bindir}/update-mime-database
 %dir %{_datadir}/mime/
 %{_datadir}/mime/packages/freedesktop.org.xml
@@ -70,3 +75,6 @@ find $RPM_BUILD_ROOT%{_datadir}/mime -type f -not -path "*/packages/*" \
 %defattr(-,root,root,-)
 %{_datadir}/pkgconfig/*.pc
 
+%files doc
+%defattr(-,root,root,-)
+%{_mandir}/man1/update-mime-database.*
