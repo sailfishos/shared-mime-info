@@ -1,9 +1,9 @@
 Name:       shared-mime-info
 Summary:    Shared MIME information database
-Version:    1.9
+Version:    1.12
 Release:    1
 Group:      System/Libraries
-License:    GPLv2
+License:    GPLv2+
 URL:        http://freedesktop.org/Software/shared-mime-info
 Source0:    %{name}-%{version}.tar.xz
 Patch0:     text-x-vnote.patch

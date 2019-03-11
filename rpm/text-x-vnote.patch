@@ -17,7 +17,7 @@ diff --git a/freedesktop.org.xml.in b/freedesktop.org.xml.in
 index caa4202..0e873d3 100644
 --- a/freedesktop.org.xml.in
 +++ b/freedesktop.org.xml.in
-@@ -7147,4 +7147,14 @@ command to generate the output files.
+@@ -7263,4 +7263,14 @@ command to generate the output files.
      </magic>
    </mime-type>
  
@@ -36,9 +36,9 @@ diff --git a/tests/list b/tests/list
 index d527325..a488065 100644
 --- a/tests/list
 +++ b/tests/list
-@@ -668,3 +668,6 @@ ascii.stl model/x.stl-ascii x
- binary.stl model/x.stl-ascii xxx
- ascii.stl model/x.stl-binary oxx
+@@ -697,3 +697,6 @@ dbus-comment.service text/x-dbus-service
+ binary.stl model/stl oxo
+ ascii.stl model/stl
  test.gcode text/x.gcode ox
 +
 +# vNote (IrMC 1.1 specification)
