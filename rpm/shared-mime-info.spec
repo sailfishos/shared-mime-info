@@ -4,7 +4,7 @@ Version:    1.12
 Release:    1
 Group:      System/Libraries
 License:    GPLv2+
-URL:        http://freedesktop.org/Software/shared-mime-info
+URL:        https://github.com/sailfishos/shared-mime-info
 Source0:    %{name}-%{version}.tar.xz
 Patch0:     text-x-vnote.patch
 BuildRequires:  pkgconfig(libxml-2.0)
