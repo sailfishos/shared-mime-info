@@ -2,7 +2,6 @@ Name:       shared-mime-info
 Summary:    Shared MIME information database
 Version:    1.12
 Release:    1
-Group:      System/Libraries
 License:    GPLv2+
 URL:        https://github.com/sailfishos/shared-mime-info
 Source0:    %{name}-%{version}.tar.xz
@@ -23,14 +22,12 @@ and looking up the correct MIME type in a database.
 
 %package devel
 Summary:    Development files for %{name}
-Group:      Development/Libraries
 Requires:   %{name} = %{version}-%{release}
 %description devel
 Development files for %{name}
 
 %package doc
 Summary:   Documentation for %{name}
-Group:     Documentation
 Requires:  %{name} = %{version}-%{release}
 Obsoletes: %{name}-docs
 
