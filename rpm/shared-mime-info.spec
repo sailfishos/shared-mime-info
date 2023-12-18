@@ -1,16 +1,16 @@
 Name:       shared-mime-info
 Summary:    Shared MIME information database
-Version:    1.12
+Version:    2.4
 Release:    1
 License:    GPLv2+
 URL:        https://github.com/sailfishos/shared-mime-info
 Source0:    %{name}-%{version}.tar.xz
-Patch0:     text-x-vnote.patch
 BuildRequires:  pkgconfig(libxml-2.0)
 BuildRequires:  pkgconfig(glib-2.0)
-BuildRequires:  gawk
-BuildRequires:  intltool
-BuildRequires:  perl-XML-Parser >= 2.31-16
+BuildRequires:  gettext
+BuildRequires:  meson
+
+Patch1:     0001-Add-text-x-vnote-.vnt.patch
 
 %description
 This is the freedesktop.org shared MIME info database.
@@ -29,26 +29,20 @@ Development files for %{name}
 %package doc
 Summary:   Documentation for %{name}
 Requires:  %{name} = %{version}-%{release}
-Obsoletes: %{name}-docs
 
 %description doc
 Man page for update-mime-database from %{name}.
 
 %prep
-%setup -q -n %{name}-%{version}/shared-mime-info
-
-# text-x-vnote.patch
-%patch0 -p1
+%autosetup -p1 -n %{name}-%{version}/shared-mime-info
 
 %build
-NOCONFIGURE=1 ./autogen.sh
-%configure
 
-make
+%meson
+%meson_build
 
 %install
-rm -rf %{buildroot}
-%make_install
+%meson_install
 
 find $RPM_BUILD_ROOT%{_datadir}/mime -type d \
 | sed -e "s|^$RPM_BUILD_ROOT|%%dir |" > %{name}.files
@@ -65,8 +59,9 @@ find $RPM_BUILD_ROOT%{_datadir}/mime -type f '!' -path "*/packages/*" \
 %defattr(-,root,root,-)
 %license COPYING
 %{_bindir}/update-mime-database
-%dir %{_datadir}/mime/
 %{_datadir}/mime/packages/freedesktop.org.xml
+%{_datadir}/gettext/its/shared-mime-info.its
+%{_datadir}/gettext/its/shared-mime-info.loc
 
 %files devel
 %defattr(-,root,root,-)

@@ -1,0 +1,61 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Marko Saukko <marko.saukko@jolla.com>
+Date: Thu, 18 Jan 2018 11:42:47 +0000
+Subject: [PATCH] Add text/x-vnote, *.vnt.
+
+The original patch is by Hannu Mallat, created to fix MER#1096 and JB#10854
+
+Signed-off-by: Marko Saukko <marko.saukko@jolla.com>
+---
+ data/freedesktop.org.xml.in | 11 +++++++++++
+ tests/mime-detection/list   |  3 +++
+ tests/test.vnt              |  4 ++++
+ 3 files changed, 18 insertions(+)
+ create mode 100644 tests/test.vnt
+
+diff --git a/data/freedesktop.org.xml.in b/data/freedesktop.org.xml.in
+index 86500bd..1dc1530 100644
+--- a/data/freedesktop.org.xml.in
++++ b/data/freedesktop.org.xml.in
+@@ -8450,6 +8450,17 @@ command to generate the output files.
+       <match type="string" value="\x5a\x49\x4d\x04" offset="0"/>
+     </magic>
+   </mime-type>
++
++  <mime-type type="text/x-vnote">
++    <_comment>Calendar/journal textual note</_comment>
++    <sub-class-of type="text/plain"/>
++    <magic priority="50">
++      <match type="string" value="BEGIN:VNOTE" offset="0"/>
++      <match type="string" value="begin:vnote" offset="0"/>
++    </magic>
++    <glob pattern="*.vnt"/>
++  </mime-type>
++
+   <mime-type type="application/sparql-query">
+     <comment>SPARQL query</comment>
+     <acronym>SPARQL</acronym>
+diff --git a/tests/mime-detection/list b/tests/mime-detection/list
+index 5338ded..c549bf3 100644
+--- a/tests/mime-detection/list
++++ b/tests/mime-detection/list
+@@ -1007,6 +1007,9 @@ test.qs application/sparql-query
+ # SPARQL query results
+ test.srx application/sparql-results+xml ox
+ 
++# vNote (IrMC 1.1 specification)
++test.vnt text/x-vnote
++
+ # Tiled files
+ tiledsample/tiled_sample.tmx application/x-tiled-tmx ox
+ tiledsample/tiled_sample.tsx application/x-tiled-tsx ox
+diff --git a/tests/test.vnt b/tests/test.vnt
+new file mode 100644
+index 0000000..0978129
+--- /dev/null
++++ b/tests/test.vnt
+@@ -0,0 +1,4 @@
++BEGIN:VNOTE
++VERSION:1.1
++BODY: Test note
++END:VNOTE
