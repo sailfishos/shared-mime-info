@@ -11,6 +11,7 @@ BuildRequires:  gettext
 BuildRequires:  meson
 
 Patch1:     0001-Add-text-x-vnote-.vnt.patch
+Patch2:     0002-appsupport-Add-application-vnd.android.package-archi.patch
 
 %description
 This is the freedesktop.org shared MIME info database.
