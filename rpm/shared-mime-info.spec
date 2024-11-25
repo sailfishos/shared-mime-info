@@ -37,8 +37,9 @@ Man page for update-mime-database from %{name}.
 %autosetup -p1 -n %{name}-%{version}/shared-mime-info
 
 %build
-
-%meson
+# the updated mimedb is later owned as %%ghost to ensure proper file-ownership
+# it also asserts it is possible to build it
+%meson -Dupdate-mimedb=true
 %meson_build
 
 %install
@@ -46,17 +47,17 @@ Man page for update-mime-database from %{name}.
 
 find $RPM_BUILD_ROOT%{_datadir}/mime -type d \
 | sed -e "s|^$RPM_BUILD_ROOT|%%dir |" > %{name}.files
-find $RPM_BUILD_ROOT%{_datadir}/mime -type f '!' -path "*/packages/*" \
+find $RPM_BUILD_ROOT%{_datadir}/mime -type f -not -path "*/packages/*" \
 | sed -e "s|^$RPM_BUILD_ROOT|%%ghost |" >> %{name}.files
 
 ## remove these bogus files
+## translations are already in the xml file installed
 %{__rm} -rf $RPM_BUILD_ROOT%{_datadir}/locale/*
 
 %post
 %{_bindir}/update-mime-database %{_datadir}/mime &> /dev/null || :
 
 %files -f %{name}.files
-%defattr(-,root,root,-)
 %license COPYING
 %{_bindir}/update-mime-database
 %{_datadir}/mime/packages/freedesktop.org.xml
@@ -64,9 +65,7 @@ find $RPM_BUILD_ROOT%{_datadir}/mime -type f '!' -path "*/packages/*" \
 %{_datadir}/gettext/its/shared-mime-info.loc
 
 %files devel
-%defattr(-,root,root,-)
 %{_datadir}/pkgconfig/*.pc
 
 %files doc
-%defattr(-,root,root,-)
 %{_mandir}/man1/update-mime-database.*
